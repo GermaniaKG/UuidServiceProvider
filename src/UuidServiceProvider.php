@@ -45,5 +45,20 @@ class UuidServiceProvider implements ServiceProviderInterface
         });
 
 
+        /**
+         * @return Callable
+         */
+        $dic['UUID.Factory'] = $dic->protect(function() use ($dic) {
+            return $dic['UUID.new'];
+        });
+
+        /**
+         * @return Callable
+         */
+        $dic['UUID.HexFactory'] = $dic->protect(function() use ($dic) {
+            return $dic['UUID.new.hex'];
+        });
+
+
     }
 }

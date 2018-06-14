@@ -38,6 +38,7 @@ $dic->register( new UuidServiceProvider  );
 Factory: Returns a new version 4 (random) UUID object as ***Ramsey\Uuid\Uuid*** instance.
 
 ```php
+<?php
 $uuid4 = $dic['UUID.new'];
 ```
 
@@ -47,7 +48,30 @@ $uuid4 = $dic['UUID.new'];
 Returns the hex string representation of a ***UUID.new*** object.
 
 ```php
+<?php
 $uuid4_hex = $dic['UUID.new.hex'];
+```
+
+
+
+### UUID.Factory
+
+Returns a callable that returns UUID object as ***Ramsey\Uuid\Uuid*** instance.
+
+```php
+<?php
+$factory = $dic['UUID.Factory'];
+$uuid4 = $factory();
+```
+
+### UUID.HexFactory
+
+Returns a callable that returns the hex string representation of a ***UUID.new*** object.
+
+```php
+<?php
+$factory = $dic['UUID.HexFactory'];
+$uuid4_hex = $factory();
 ```
 
 
