@@ -61,6 +61,13 @@ class UuidServiceProviderTest extends \PHPUnit\Framework\TestCase
         $uuid1 = $factory_callable();
         $this->assertInstanceOf( Uuid::class, $uuid1 );
 
+        // Call again ...
+        $uuid2 = $factory_callable();
+        $this->assertInstanceOf( Uuid::class, $uuid1 );
+
+        // Both instances must not be identical
+        $this->assertNotEquals( $uuid2, $uuid1 );
+
     }
 
     public function testCallableHexFactory()
@@ -76,7 +83,10 @@ class UuidServiceProviderTest extends \PHPUnit\Framework\TestCase
         $uuid_hex1 = $factory_callable();
         $this->assertInternalType( "string", $uuid_hex1 );
 
+        // Call again ...
         $uuid_hex2 = $factory_callable();
+
+        // Both hex strings must not be identical
         $this->assertNotEquals( $uuid_hex2, $uuid_hex1 );
 
     }
