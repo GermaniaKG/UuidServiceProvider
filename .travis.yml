@@ -9,19 +9,6 @@ php:
   - hhvm
 
 
-# -- Begin MySQL support --------------------------
-
-services:
-  - mysql
-
-before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-
-# -- End MySQL support ----------------------------
-
-
-env:
-
 before_script:
   - rm composer.lock
   - composer self-update
