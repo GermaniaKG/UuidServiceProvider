@@ -2,14 +2,15 @@
 
 **[Pimple Service Provider](https://pimple.symfony.com/#extending-a-container) for working with Ben Ramsey's [ramsey/uuid](https://packagist.org/packages/ramsey/uuid) package**
 
-
-[![Build Status](https://travis-ci.org/GermaniaKG/UuidServiceProvider?branch=master)](https://travis-ci.org/GermaniaKG/UuidServiceProvider)
-[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/?branch=master)
+[![Packagist](https://img.shields.io/packagist/v/germania-kg/uuidserviceprovider.svg?style=flat)](https://packagist.org/packages/germania-kg/uuidserviceprovider)
+[![PHP version](https://img.shields.io/packagist/php-v/germania-kg/uuidserviceprovider.svg)](https://packagist.org/packages/germania-kg/uuidserviceprovider)
+[![Build Status](https://img.shields.io/travis/GermaniaKG/UuidServiceProvider.svg?label=Travis%20CI)](https://travis-ci.org/GermaniaKG/UuidServiceProvider)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/UuidServiceProvider/build-status/master)
 
 
-## Installation
+## Installation with Composer
 
 ```bash
 $ composer require germania-kg/uuidserviceprovider
@@ -74,13 +75,21 @@ $factory = $dic['UUID.HexFactory'];
 $uuid4_hex = $factory();
 ```
 
+## Development
+
+```bash
+$ git clone https://github.com/GermaniaKG/UuidServiceProvider.git
+$ cd UuidServiceProvider
+$ composer install
+```
 
 ## Unit tests
 
-Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. 
-Run [PhpUnit](https://phpunit.de/) like this:
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) test or composer scripts like this:
 
 ```bash
+$ composer test
+# or
 $ vendor/bin/phpunit
 ```
 
