@@ -41,7 +41,8 @@ class UuidServiceProvider implements ServiceProviderInterface
          * @return string
          */
         $dic['UUID.new.hex'] = $dic->factory(function( $dic ) {
-            return $dic['UUID.new']->getHex();
+            $hex = $dic['UUID.new']->getHex();
+            return is_string($hex) ? $hex : $hex->__toString();
         });
 
 
