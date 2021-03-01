@@ -1,7 +1,7 @@
 <?php
 namespace tests;
 
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Pimple\Container as PimpleContainer;
 use Germania\UuidServiceProvider\UuidServiceProvider;
 
@@ -26,7 +26,7 @@ class UuidServiceProviderTest extends \PHPUnit\Framework\TestCase
         $dic->register( $sut );
 
         $uuid1 = $dic['UUID.new'];
-        $this->assertInstanceOf( Uuid::class, $uuid1 );
+        $this->assertInstanceOf( UuidInterface::class, $uuid1 );
 
         $uuid2 = $dic['UUID.new'];
         $this->assertNotSame( $uuid1, $uuid2 );
@@ -41,7 +41,7 @@ class UuidServiceProviderTest extends \PHPUnit\Framework\TestCase
         $dic->register( $sut );
 
         $uuid_hex1 = $dic['UUID.new.hex'];
-        $this->assertInternalType( "string", $uuid_hex1 );
+        $this->assertIsString( $uuid_hex1 );
 
         $uuid_hex2 = $dic['UUID.new.hex'];
         $this->assertNotEquals( $uuid_hex1, $uuid_hex2 );
@@ -59,11 +59,11 @@ class UuidServiceProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue( is_callable( $factory_callable ) );
 
         $uuid1 = $factory_callable();
-        $this->assertInstanceOf( Uuid::class, $uuid1 );
+        $this->assertInstanceOf( UuidInterface::class, $uuid1 );
 
         // Call again ...
         $uuid2 = $factory_callable();
-        $this->assertInstanceOf( Uuid::class, $uuid1 );
+        $this->assertInstanceOf( UuidInterface::class, $uuid1 );
 
         // Both instances must not be identical
         $this->assertNotEquals( $uuid2, $uuid1 );
@@ -81,7 +81,7 @@ class UuidServiceProviderTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue( is_callable( $factory_callable ) );
 
         $uuid_hex1 = $factory_callable();
-        $this->assertInternalType( "string", $uuid_hex1 );
+        $this->assertIsString( $uuid_hex1 );
 
         // Call again ...
         $uuid_hex2 = $factory_callable();
